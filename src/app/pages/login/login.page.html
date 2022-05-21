@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Login
+    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col>            
+        </ion-col>      
+        <ion-fab-button routerLink="/bem-vindo">
+          <ion-icon name="chevron-back-circle-outline"></ion-icon>
+        </ion-fab-button>  
+        <ion-col>            
+        </ion-col>
+      </ion-row>        
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 style="font-size: 20px;" class="ion-text-center">
+    <b>Faça o login para entrar</b>
+  </h1>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>            
+      </ion-col>      
+        <div class="form">
+          <ion-item>
+            <ion-label position="floating"><b>Email</b></ion-label>
+            <ion-input type="text" [(ngModel)]="userLogin.email"></ion-input>
+          </ion-item>
+          <ion-item style="margin-top: 10px;">
+            <ion-label position="floating"><b>Senha</b></ion-label>
+            <ion-input type="password" [(ngModel)]="userLogin.password"></ion-input>
+          </ion-item>
+        </div><br>
+      <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>            
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="login()" style="--background: #21AFFF;">Efetuar Login</ion-button>
+        <ion-button routerLink="/register-user" style="margin-top: 20px; --background: #1F26C7;">Cadastro</ion-button>
+      </ion-col>          
+      <ion-col>            
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>
+          <a routerLink="/recover-password"><b>Equeceu a senha?</b></a>
+        </p>
+      </ion-col>
+    </ion-row>          
+  </ion-grid>
+</ion-content>

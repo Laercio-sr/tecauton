@@ -1,0 +1,85 @@
+<ion-content>
+  <h1 style="font-size: 20px;" class="ion-text-center">
+    <b>Atualizar OS</b>
+  </h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+      </ion-col>      
+        <div class="form">
+          <ion-item>
+            <ion-label position="floating"><b>Nº OS</b></ion-label>
+            <ion-input [(ngModel)]="os.numberos" disabled="true">00</ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Selecione o Cliente</b></ion-label>
+            <ion-input [(ngModel)]="os.customername" disabled="true"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Data de entrada</b></ion-label>
+            <ion-input value="{{ os.entrydate | date: 'dd/MM/yyyy' }}" id="entrydate" class="ion-text-start" disabled="true"></ion-input>
+            <ion-popover trigger="entrydate" size="cover">
+              <ng-template>
+                <ion-datetime presentation="entrydate" [(ngModel)]="os.entrydate" locale="pt-BR"></ion-datetime>
+              </ng-template>
+            </ion-popover>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Data de saída</b></ion-label>
+            <ion-input value="{{ os.exitdate | date: 'dd/MM/yyyy' }}" id="exitdate" class="ion-text-start"></ion-input>
+            <ion-popover trigger="exitdate" size="cover">
+              <ng-template>
+                <ion-datetime presentation="exitdate" [(ngModel)]="os.exitdate" locale="pt-BR"></ion-datetime>
+              </ng-template>
+            </ion-popover>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Marca</b></ion-label>
+            <ion-input type="text" [(ngModel)]="os.brand"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Modelo</b></ion-label>
+            <ion-input type="text" [(ngModel)]="os.model"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Número de série</b></ion-label>
+            <ion-input type="text" [(ngModel)]="os.serialnumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Defeito</b></ion-label>
+            <ion-input type="text" [(ngModel)]="os.defect"></ion-input>
+          </ion-item>          
+          <ion-item>
+            <ion-label position="floating"><b>Situação</b></ion-label>
+            <ion-select [(ngModel)]="os.situation">
+              <ion-select-option value="Orçamento">Orçamento</ion-select-option>
+              <ion-select-option value="Reparo/Devolução">Reparo/Devolução</ion-select-option>
+              <ion-select-option style="font-size: 1px;" value="Sem Reparo/Devolução">Sem Reparo/Devolução</ion-select-option>
+             </ion-select>            
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Reparo</b></ion-label>
+            <ion-input type="text" [(ngModel)]="os.repair"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating"><b>Valor R$</b></ion-label>
+            <ion-input type="number" [(ngModel)]="os.price"></ion-input>
+          </ion-item>
+        </div><br>
+      <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>            
+      </ion-col>
+        <ion-col>
+          <ion-button (click)="updateOs()" style="--background: #1F26C7;">Atualizar OS</ion-button>
+          <ion-button routerLink="/os-list" style="margin-top: 20px; --background: #ADADB7;">Cancelar</ion-button>
+        </ion-col>          
+      <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+</ion-content>

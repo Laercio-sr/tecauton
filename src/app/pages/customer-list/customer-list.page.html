@@ -1,0 +1,57 @@
+
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Clientes
+    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col>            
+          </ion-col>      
+            <ion-fab-button routerLink="/home">
+              <ion-icon style="font-size: 3em; margin-top: 0%;" name="home-outline"></ion-icon>
+            </ion-fab-button>   
+          <ion-col>            
+        </ion-col>
+      </ion-row>        
+    </ion-grid>
+    <ion-searchbar placeholder="Pesquisar Cliente..." (ionInput)="customerFilter($event)" clearInput>
+    </ion-searchbar>
+  </ion-toolbar>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col style="border-radius: 5px; background: #9BF4FA;">OSs<b>--</b>Editar<b>--</b>Excluir<b>-----</b></ion-col>
+  </ion-row>
+  <ion-list *ngIf="!customers.length">
+    <ion-item *ngFor="let item of [0]">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>      
+  <ion-item-sliding *ngFor="let customer of customers"> 
+    <ion-card style="margin: 2px;">
+      <ion-item >          
+        <ion-label><p style=" font-size: 12px; color: #02922A;">{{ customer.name }}</p></ion-label>
+        <ion-button routerLink="/os-list">
+          <ion-icon name="document"></ion-icon></ion-button>
+        <ion-button [routerLink]="['/customer-update', customer.id]">
+          <ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button (click)="deleteCustomer(customer.id)">
+          <ion-icon name="trash-outline"></ion-icon></ion-button>          
+      </ion-item>        
+    </ion-card>
+  </ion-item-sliding>
+</ion-content>

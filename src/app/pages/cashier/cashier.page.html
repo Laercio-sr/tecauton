@@ -1,0 +1,84 @@
+<ion-toolbar>
+  <ion-title class="ion-text-center">
+    Caixa
+  </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+        </ion-col>      
+          <ion-fab-button routerLink="/home">
+            <ion-icon style="margin: 0%; font-size: 3em; color: rgb(142, 224, 249); " name="home-outline"></ion-icon>
+          </ion-fab-button>   
+        <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+</ion-toolbar>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+        </ion-col>
+        <ion-item style="margin-top: 5px; width: 45vw; height: 16vw; border-radius: 10px;">
+          <ion-label position="floating"><b style="color: #231FC7;">Data</b></ion-label>
+          <ion-icon style="font-size: 20px; align-self: end; color: #231FC7;" name="calendar-outline"></ion-icon>
+          <ion-input style="margin-top: -15px; font-size: 25px;" value="{{ dateCashier | date: 'MM/yyyy' }}" id="dateCashier"></ion-input>
+          <ion-popover trigger="dateCashier">
+            <ng-template>
+              <ion-datetime presentation="dateCashier" [(ngModel)]="dateCashier" locale="pt-BR"></ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>    
+        <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+  <ion-grid>
+    <ion-row>          
+      <canvas style="margin-top: 10px;" id="cashier-chart"></canvas>        
+    </ion-row>        
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">     
+        <ion-button style="--background: #4BDAFA;" routerLink="/out-of-box" expand="block">
+          Saída de<br>Caixa<ion-icon name="cash-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">      
+        <ion-button style="--background: #0EBBE1;" routerLink="/service-report" expand="block">
+          Relatório<br>Serviços<ion-icon name="cog-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+        </ion-col>           
+          <ion-button style="--background: #2AA3BE;" routerLink="/cash-outflow-report" expand="block">
+            Relatório<br>Saida de<br>Caixa<ion-icon style="color: #fff;" name="newspaper-outline"></ion-icon>
+          </ion-button>           
+        <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+  <ion-grid >  
+    <ion-row>
+      <ion-col>            
+      </ion-col>
+          <ion-col>
+            <ion-button style=" margin-top: 10px; 
+                                margin-left: -80px; 
+                                margin-right: -80px;
+                                font-size: 15px; 
+                                height: 40px; display: flex;--background: #ADADB7; --border-radius: 25px;" (click)="logout()" expand="block">
+              <b>Sair</b> 
+            </ion-button>
+        </ion-col>          
+      <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+</ion-content>

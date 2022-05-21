@@ -1,0 +1,26 @@
+ion-content{
+    --background: #4BDAFA;
+    ion-card-subtitle{
+            margin-top: 40px;
+            font-size: 23px;
+            color: #fff;
+        }
+        ion-card-title{
+            font-size: 33px;
+            color: #fff;
+        }
+        ion-button{
+            width: 290px;
+            height: 45px;
+            font-size: 18px;
+            font-style: normal;
+            --border-radius: 30px;        
+            color: #fff;
+        }
+        h1{
+            color: #fff;
+            margin-top: 25px;
+            font-size: 20px;
+        }
+   
+}

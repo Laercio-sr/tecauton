@@ -1,5 +1,7 @@
 {
   "name": "tecauton",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

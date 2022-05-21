@@ -1,0 +1,70 @@
+<ion-toolbar>
+  <ion-avatar style="margin-top: 45px;">
+    <img src="https://themes-coder.com/wp-content/uploads/2019/01/default_avatar.png">
+  </ion-avatar>
+  <ion-title >
+    Bem Vindo!
+  </ion-title>
+  <ion-title *ngFor="let user of users">
+    {{ user.name }}
+  </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+      </ion-col>              
+        <ion-fab-button routerLink="/question">
+          <ion-icon style="font-size: 3em; margin: 0%; color: #fff;" name="help-circle-outline"></ion-icon>
+        </ion-fab-button>   
+      <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>   
+</ion-toolbar>  
+  
+<ion-content>  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">     
+        <ion-button style="--background: #4BDAFA;" routerLink="/customer-register" expand="block">
+          Cadastrar<br>Cliente<ion-icon name="person-add-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">      
+        <ion-button style="--background: #0EBBE1;" routerLink="/os-register" expand="block">
+          Cadastrar<br>OS<ion-icon name="document-text-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">     
+        <ion-button style="margin-top: 20px; --background: #2AA3BE;" routerLink="/customer-list" expand="block">
+          Clientes<ion-icon name="people-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">      
+        <ion-button style="margin-top: 20px; --background: #696FAC;" routerLink="/cashier" expand="block">
+          Caixa<ion-icon name="calculator-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<ion-grid >  
+  <ion-row>
+    <ion-col>            
+      </ion-col>
+        <ion-col>
+          <ion-button style=" margin-top: 20px; 
+                              margin-left: -80px; 
+                              margin-right: -80px;
+                              font-size: 15px; 
+                              height: 40px; display: flex;--background: #ADADB7; --border-radius: 25px;" (click)="logout()" expand="block">
+            <b>Sair</b> 
+          </ion-button>
+        </ion-col>          
+      <ion-col>            
+    </ion-col>
+  </ion-row>        
+</ion-grid>
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-toolbar>
+  <ion-title class="ion-text-center">
+    Rel. Saída de Caixa
+  </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+        </ion-col>      
+          <ion-fab-button routerLink="/cashier">
+            <ion-icon name="chevron-back-circle-outline"></ion-icon>
+          </ion-fab-button>
+        <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+        </ion-col>
+        <ion-item style="margin-top: 5px; width: 45vw; height: 18vw; border-radius: 10px;">
+          <ion-label position="floating"><b style=" font-size: 12px; color: #231FC7;">Data</b></ion-label>
+          <ion-icon style="font-size: 20px; align-self: end; color: #231FC7;" name="calendar-outline"></ion-icon>
+          <ion-input style="margin-top: -15px; font-size: 25px;" value="{{ dateReport | date: 'MM/yyyy' }}" id="dateReport" class="ion-text-start"></ion-input>
+          <ion-popover trigger="dateReport">
+            <ng-template>
+              <ion-datetime presentation="dateReport" [(ngModel)]="dateReport" locale="pt-BR"></ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>    
+        <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+</ion-toolbar>
+
+<ion-content>
+  <ion-list *ngIf="!cashiers.length">
+    <ion-item *ngFor="let item of [0]">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>      
+  <ion-item-sliding *ngFor="let cashier of cashiers"> 
+    <ion-card style="margin: 2px;">
+      <ion-item >          
+        <ion-label><p style=" font-size: 12px; color: #d10000;">{{ cashier.category }}--{{ cashier.description }}</p></ion-label>
+        <ion-note style="font-size: 12px; color: #d10000;" slot="end" *ngIf="cashier.payPrice">{{ cashier.payPrice | currency: 'BRL' }}</ion-note>                 
+      </ion-item>
+    </ion-card>
+  </ion-item-sliding>
+</ion-content>

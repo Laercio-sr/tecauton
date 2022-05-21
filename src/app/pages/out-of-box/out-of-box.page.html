@@ -1,0 +1,92 @@
+<ion-toolbar>
+  <ion-title class="ion-text-center">
+    Saída de Caixa
+  </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+        </ion-col>      
+          <ion-fab-button routerLink="/cashier">
+            <ion-icon style="margin: 0%; font-size: 3em; color: rgb(142, 224, 249); " name="chevron-back-circle-outline"></ion-icon>
+          </ion-fab-button>   
+        <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+</ion-toolbar>
+
+<ion-content> 
+  <ion-grid>
+    <ion-row>
+      <ion-col>            
+      </ion-col>      
+        <div class="form">
+          <ion-item style="margin-top: 10px;">
+            <ion-label position="floating"><b>Categoria</b></ion-label>
+            <ion-select [(ngModel)]="cashier.category" clearInput="true">
+              <ion-select-option value="Aluguel">Aluguel</ion-select-option>
+              <ion-select-option value="Fornecedora de Energia Elétrica">Fornecedora de Energia Elétrica</ion-select-option>
+              <ion-select-option value="Escola">Escola</ion-select-option>
+              <ion-select-option value="Fornecedora de Água">Fornecedora de Água</ion-select-option>
+              <ion-select-option value="Mercado">Mercado</ion-select-option>
+              <ion-select-option value="Peças">Peças</ion-select-option>
+              <ion-select-option value="Telefone">Telefone</ion-select-option>
+              <ion-select-option value="Veículo">Veículo</ion-select-option>
+              <ion-select-option value="Outros">Outros</ion-select-option>
+             </ion-select>            
+          </ion-item>
+          <ion-item style="margin-top: 15px; width: 55vw;">
+            <ion-label position="floating"><b>Data</b></ion-label>
+            <ion-icon style="font-size: 20px; align-self: end; color: #40488E;" name="calendar-outline"></ion-icon>
+            <ion-input value="{{ cashier.exitdate | date: 'dd/MM/yyyy' }}" id="exitdate" class="ion-text-start"></ion-input>
+            <ion-popover trigger="exitdate">
+              <ng-template>
+                <ion-datetime presentation="exitdate" [(ngModel)]="cashier.exitdate" locale="pt-BR"></ion-datetime>
+              </ng-template>
+            </ion-popover>
+          </ion-item>         
+          <ion-item style="margin-top: 15px; width: 55vw;">
+            <ion-label position="floating"><b>Valor R$</b></ion-label>
+            <ion-input type="number" [(ngModel)]="cashier.payPrice"></ion-input>
+          </ion-item>
+          <ion-item style="margin-top: 15px; height: 30vw; border-radius: 15px;">
+            <ion-label position="floating"><b>Descrição</b></ion-label>
+            <ion-textarea type="text" [(ngModel)]="cashier.description"></ion-textarea>
+          </ion-item>               
+        </div><br>
+      <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+  <ion-grid class="ion-text-center">
+    <ion-row>   
+      <ion-col>            
+      </ion-col>
+        <ion-col>
+          <ion-button (click)="registerCashier()" style="--background: #1F26C7;">Registrar Saída</ion-button>
+        </ion-col>          
+      <ion-col>            
+      </ion-col>
+    </ion-row>        
+  </ion-grid>
+  <ion-card style="border-radius: 15px; height: 36vw; margin-top: 0px;" *ngFor="let os of oss">
+    <ion-row >
+      <ion-item >
+        <ion-label style="font-size: 18px; color: #02922A; margin-top: 10px;"><b>Valor em caixa</b></ion-label>
+        <ion-note style="font-size: 18px; color: #02922A; margin-top: -5px;" slot="end" *ngIf="os.price"><b>{{ os.price | currency: 'BRL' }}</b></ion-note>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label style="font-size: 18px; color: #FE0404; margin-top: 10px;"><b>Saída de caixa</b></ion-label>
+        <ion-note style="font-size: 18px; color: #FE0404; margin-top: -5px;" slot="end" *ngIf="cashier.payPrice"><b>{{ cashier.payPrice | currency: 'BRL' }}</b></ion-note>
+      </ion-item>_________________________________________
+    </ion-row>
+    <ion-row>      
+      <ion-item>
+        <ion-label style="font-size: 18px; color: #02922A; margin-top: -1px;"><b>Total em caixa</b></ion-label>
+        <ion-note style="font-size: 18px; color: #02922A; margin-top: -10px;" slot="end" *ngIf="os.price"><b>{{ os.price | currency: 'BRL' }}</b></ion-note>
+      </ion-item>
+    </ion-row>
+  </ion-card> 
+</ion-content>

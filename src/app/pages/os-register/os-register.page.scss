@@ -1,0 +1,36 @@
+ion-content{
+    --background: #4BDAFA;
+    .item{ 
+        margin-top: 5px;
+        height: 33px;
+        width: 90vw;
+        border-radius: 25px;
+        background-color: #fff;
+        ion-label{
+            font-size: 11px;
+            margin-top: -6px;
+            color: rgb(173, 170, 170);
+        }
+    }
+    h1{
+        color: #fff;
+        margin-top: 15px;
+        font-size: 20px;
+    }
+
+}
+ion-input{
+    margin-top: -25px;
+}
+ion-button{
+    width: 290px;
+    height: 45px;
+    font-size: 18px;
+    font-style: normal;
+    --border-radius: 30px;        
+    color: #fff;
+}
+ion-select{
+    margin-bottom: 20px;    
+}
+  
